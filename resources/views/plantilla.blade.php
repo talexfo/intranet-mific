@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INTRANET</title>
+    <title>Directorio - MIFIC</title>
 <link rel="stylesheet" href="/css/all.css">
+
 <style>
 
 
@@ -27,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">INTRANET</a>
+            <a class="navbar-brand" href="/">MIFIC</a>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,11 +41,11 @@
             
             @if (auth()->check())
             <li class="{{ request()->is('directorio/create')  ? 'active': '' }}"><a  href="{{ route('directorio.create')}}">Registrar Numero</a></li>
-            <li><a class="{{ request()->is('register') ? 'active': '' }}" href="/register">Registrar Usuario</a></li>  
+           
                 
                 @endif
 
-           
+                <li><a class="{{ request()->is('register') ? 'active': '' }}" href="/register">Registrar Usuario</a></li>  
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(auth()->guest())
@@ -78,7 +79,7 @@
     {{-- <footer class="text-center"> {{date('Y')}}</footer> --}}
     </div>
     
-
+    <script src="/js/all.js"></script>
 
 </body>
 </html>

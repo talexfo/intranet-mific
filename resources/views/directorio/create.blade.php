@@ -8,8 +8,8 @@
 <input type="text" name="nombre">
 <label for="email">Email</label>
 <input type="text" name="email" id="email">
-<label for="area">Area</label>
-<input type="text" name="area" >
+<label for="oficina">Area</label>
+<input type="text" name="oficina" >
 <label for="extension">Extension</label>
 <input type="text" name="extension" >
 

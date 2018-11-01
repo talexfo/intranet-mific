@@ -14,6 +14,9 @@
 
 
 
+Route::get('directorio/activar/{id}', 'DirectorioController@activar');
+Route::get('directorio/desactivar/{id}', 'DirectorioController@desactivar');
+
 Route::get('/', 'PagesController@inicio');
 Route::resource('directorio', 'DirectorioController');
 

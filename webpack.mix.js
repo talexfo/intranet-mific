@@ -12,8 +12,15 @@ const mix = require('laravel-mix');
  */
 
 mix.styles([
-    'resources/assets/plantilla/css/bootstrap.min.css',
+     'resources/assets/plantilla/css/bootstrap.min.css',
+    'resources/assets/plantilla/css/font-awesome.min.css'
 ], 'public/css/all.css')
 .scripts([
-    'resources/assets/plantilla/js/bootstrap.min.js'
+    'resources/assets/plantilla/js/jquery.min.js',
+    
+    'resources/assets/plantilla/js/bootstrap.min.js',
+    
+    
+    
+    
 ], 'public/js/all.js');

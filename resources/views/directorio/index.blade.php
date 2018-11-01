@@ -14,7 +14,7 @@
             <select name="criterio" id="criterio" class="form-control">
                     <option value="nombre">Nombre</option>
                     <option value="email">email</option>
-                    <option value="area">Area</option>
+                    <option value="oficina">Oficina</option>
                     <option value="extension">Extensión</option>
                 </select>
            
@@ -39,7 +39,7 @@
 <tr>
 <th>Nombre</th>
 <th>Email</th>  
-<th>Area</th>
+<th>oficina</th>
 <th>Extensión</th>
 
 @if (auth()->check())
@@ -55,7 +55,7 @@
             <tr>
             <td>{{ $item->nombre }}</td>
             <td>{{ $item->email }}</td>
-            <td>{{$item->area}}</td>
+            <td>{{$item->oficina}}</td>
             <td>{{$item->extension}}</td>
             
             @if (auth()->check())
@@ -74,11 +74,20 @@
 
 
             <td>
-            <a href="{{ route('directorio.edit', $item->id )}}" class="btn btn-warning">Editar</a>
+            <a class="btn btn-warning btn-xs" href="{{ route('directorio.edit', $item->id )}}" >
+                <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
+            </a>
                 
-            <form style="display:inline" action="{{route('directorio.destroy', $item->id)}}" method="POST">
-                <button class="btn btn-danger" type="submit">Eliminar</button>
-            </form>
+
+            @if($item->condicion == 0)
+            <a class="btn btn-success btn-xs" href="directorio/activar/{{$item->id}}" >
+                <i class="fa fa-check-circle" aria-hidden="true"></i> Activar</a>
+            @else
+            <a class="btn btn-danger btn-xs" href="directorio/desactivar/{{$item->id}}" >
+                <i class="fa fa-minus-circle" aria-hidden="true"></i> Desactivar</a>
+            @endif
+
+            
             
             </td>
             @endif
@@ -87,6 +96,27 @@
         @endforeach
 
         {!! $lista->links() !!}
+
+<script>
+
+var desactivar = function (id) {
+    //  alert(id);
+    $.ajax({
+						type:'post',
+						url: 'directorio/desactivar',
+						data:{
+							
+							'id':id,
+						},
+						success:function(data){
+                            alert( data );
+							// window.location.reload();
+						},
+					});
+
+}
+</script>
+
     </tbody>
 </table>
 

@@ -29,16 +29,35 @@ class DirectorioController extends Controller
 
     //    $lista =  DB::table('directorio')->get();
 
-    if ($buscar == ''){
-        $lista = Directorio::select('directorio.*')
-        ->orderby('nombre', 'asc')
-        ->paginate(3);
+    if (auth()->guest()){
+        if ($buscar == ''){
+            $lista = Directorio::select('directorio.*')
+             ->where('condicion', '==' ,1)
+            ->orderby('nombre', 'asc')
+            ->paginate(3);
+        }else{
+            $lista = Directorio::select('directorio.*')
+            ->where($criterio, 'like', '%'. $buscar . '%')
+             ->where('condicion', '==' ,1)
+            ->orderby('nombre', 'asc')
+            ->paginate(3);
+        }
     }else{
-        $lista = Directorio::select('directorio.*')
-        ->where($criterio, 'like', '%'. $buscar . '%')
-        ->orderby('nombre', 'asc')
-        ->paginate(3);
+        if ($buscar == ''){
+            $lista = Directorio::select('directorio.*')
+            // ->where('condicion', '=' ,1)
+            ->orderby('nombre', 'asc')
+            ->paginate(3);
+        }else{
+            $lista = Directorio::select('directorio.*')
+            ->where($criterio, 'like', '%'. $buscar . '%')
+            // ->where('condicion', '=' ,1)
+            ->orderby('nombre', 'asc')
+            ->paginate(3);
+        }
     }
+
+    
            
                 
             return view('directorio.index', compact('lista'));
@@ -145,9 +164,28 @@ class DirectorioController extends Controller
         $directorio->condicion = 0;
         $directorio->save();
 
+     
+            
         //redireccionar
         $lista = Directorio::paginate(3);
                 
-            return view('directorio.index', compact('lista'));
+        return redirect()->action('DirectorioController@index');
+        //  return "Soy "+ $id;
+
+       // return response()->json();
+    }
+
+    public function activar($id){
+        $directorio = Directorio::findOrFail($id);
+
+        $directorio->condicion = 1;
+        $directorio->save();
+
+            
+        //redireccionar
+        $lista = Directorio::paginate(3);
+                
+        return redirect()->action('DirectorioController@index');
+        
     }
 }
