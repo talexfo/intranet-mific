@@ -21,6 +21,7 @@ class CreateDirectorioTable extends Migration
             $table->string('extension');
             $table->boolean('condicion')->default(1);;
             $table->timestamps();
+            
         });
     }
 
