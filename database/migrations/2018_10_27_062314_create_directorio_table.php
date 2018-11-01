@@ -17,7 +17,7 @@ class CreateDirectorioTable extends Migration
             $table->increments('id');
             $table->string('nombre', 70);
             $table->string('email', 70);
-            $table->string('area');
+            $table->string('oficina');
             $table->string('extension');
             $table->boolean('condicion')->default(1);;
             $table->timestamps();
