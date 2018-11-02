@@ -97,25 +97,7 @@
 
         {!! $lista->links() !!}
 
-<script>
 
-var desactivar = function (id) {
-    //  alert(id);
-    $.ajax({
-						type:'post',
-						url: 'directorio/desactivar',
-						data:{
-							
-							'id':id,
-						},
-						success:function(data){
-                            alert( data );
-							// window.location.reload();
-						},
-					});
-
-}
-</script>
 
     </tbody>
 </table>

@@ -42,10 +42,10 @@
             @if (auth()->check())
             <li class="{{ request()->is('directorio/create')  ? 'active': '' }}"><a  href="{{ route('directorio.create')}}">Registrar Numero</a></li>
            
-                
+            <li><a class="{{ request()->is('register') ? 'active': '' }}" href="/register">Registrar Usuario</a></li>  
                 @endif
-
-                <li><a class="{{ request()->is('register') ? 'active': '' }}" href="/register">Registrar Usuario</a></li>  
+                
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(auth()->guest())

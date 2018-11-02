@@ -11,10 +11,21 @@ class PagesController extends Controller
     
     public function inicio(){
 
-        $lista = Directorio::select('directorio.*')
-        ->orderby('nombre', 'asc')
-        ->paginate(3);
 
+        if (auth()->guest()){
+            $lista = Directorio::select('directorio.*')
+            ->where('condicion', '=', 1)
+            ->orderby('nombre', 'asc')
+            ->paginate(3);
+    
+        }else{
+            $lista = Directorio::select('directorio.*')
+            
+            ->orderby('nombre', 'asc')
+            ->paginate(3);
+    
+        }
+       
         return view('directorio.index', compact('lista'));
     }
   

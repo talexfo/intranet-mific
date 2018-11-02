@@ -34,7 +34,7 @@
 <div class="group">
     <label for="nombre" class="col-md-2">Oficina</label>
     <div class="col-md-4">
-        <input class="form-control" type="text" name="area" value="{{$directorio->oficina}}" >
+        <input class="form-control" type="text" name="oficina" value="{{$directorio->oficina}}" >
     </div>
     <label for="email" class="col-md-2">Extensión</label>
     <div class="col-md-4">
