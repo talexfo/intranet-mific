@@ -27,18 +27,17 @@ class DirectorioController extends Controller
         $buscar = $request->buscar;
         $criterio = $request->criterio;
 
-    //    $lista =  DB::table('directorio')->get();
-
+    
     if (auth()->guest()){
         if ($buscar == ''){
             $lista = Directorio::select('directorio.*')
-             ->where('condicion', '==' ,1)
+            ->where('condicion', '=' ,1)
             ->orderby('nombre', 'asc')
             ->paginate(3);
         }else{
             $lista = Directorio::select('directorio.*')
             ->where($criterio, 'like', '%'. $buscar . '%')
-             ->where('condicion', '==' ,1)
+             ->where('condicion', '=' ,1)
             ->orderby('nombre', 'asc')
             ->paginate(3);
         }
@@ -151,9 +150,9 @@ class DirectorioController extends Controller
 
 
         //redireccionar
-        $lista = Directorio::paginate(3);
+        
                 
-             return view('directorio.index', compact('lista'));
+        return redirect()->action('DirectorioController@index');
             
     }
 

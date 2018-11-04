@@ -59,8 +59,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Acceder
                                 </button>
-                                <a href="/" class="btn btn-default">Cancelar</a>
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a href="/" class="btn btn-secondary">Cancelar</a>
+                                <a class="btn btn-outline-success" href="{{ route('password.request') }}">
                                     Olvidé mi contraseña
                                 </a>
                             </div>

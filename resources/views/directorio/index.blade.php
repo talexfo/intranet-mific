@@ -6,29 +6,34 @@
 
     <h1 class="text-center">Directorio</h1>
 
+   
+
+
 <form action="directorio" method="GET"> 
-    <div class="form-group">
-        
-            <label for="" class="col-md-1">Buscar por:</label>
-            <div class="col-md-3">
+    
+
+    <div class="form-group row">
+        <label for="name" class="col-md-4 col-form-label text-md-right">Buscar por</label>
+        <div class="col-md-2">
             <select name="criterio" id="criterio" class="form-control">
-                    <option value="nombre">Nombre</option>
-                    <option value="email">email</option>
-                    <option value="oficina">Oficina</option>
-                    <option value="extension">Extensión</option>
-                </select>
-           
+                <option value="nombre">Nombre</option>
+                <option value="email">email</option>
+                <option value="oficina">Oficina</option>
+                <option value="extension">Extensión</option>
+            </select>
+            
         </div>
-            <div class="col-md-4">
-                    <input type="text" name="buscar" id="buscar"  class="form-control input-sm">
-                 </div>
-                 <div class="col-md-4">
-                        <button class="btn btn-primary" type="submit">Buscar</button>
-                 </div>
-                
+        <div class="col-md-4">
+<input class="form-control" type="text" name="buscar" >   
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" type="submit">Buscar</button>
+        </div>
     </div>
 
+
 </form>
+
 <br><br>
 <hr>
 
@@ -61,11 +66,13 @@
             @if (auth()->check())
             <td>
                 @if ($item->condicion == 1)
-                <span class="label label-success">Activo</span> 
+
+                <span class="badge badge-success">Activo</span>
                
                     
                 @else
-                <span class="label label-danger">Inactivo</span> 
+                <span class="badge badge-danger">Inactivo</span>
+                
                 @endif
 
 

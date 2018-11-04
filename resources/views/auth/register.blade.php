@@ -2,13 +2,10 @@
 
 @section('contenido')
 
-
-<div class="panel panel-primary">
-      <div class="panel-heading">
-            <h3 class="panel-title">Registrar Usuario</h3>
-      </div>
-      <div class="panel-body">
-            <form method="POST" action="{{ route('register') }}">
+<div class="text-center" style="margin-top:50px">
+    <h2>Registrar Usuario</h2>
+</div>
+            <form method="POST" action="{{ route('register') }}" >
                     @csrf
 
                     <div class="form-group row">
@@ -72,12 +69,11 @@
                             <button type="submit" class="btn btn-primary">
                                 Registrar
                             </button>
-                            <a href="/" class="btn btn-default">Cancelar</a>
+                            <a href="/" class="btn btn-secondary">Cancelar</a>
                         </div>
                     </div>
                 </form>
-      </div>
-</div>
+     
 
 
 

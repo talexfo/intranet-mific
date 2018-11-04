@@ -18,55 +18,53 @@
 
     {{-- <h1>{{  request()->url() }}</h1> --}}
 
-    
-    <nav class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">MIFIC</a>
-        </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-             {{-- <li class="{{ request()->is('/') ? 'active': '' }}"><a  href="/">Inicio</a></li> --}}
-            <li class="
-            
-            {{ request()->is('directorio') || request()->is('/') ? 'active': '' }}"><a  href="{{ route('directorio.index')}}">Directorio</a></li>
-            
-            @if (auth()->check())
-            <li class="{{ request()->is('directorio/create')  ? 'active': '' }}"><a  href="{{ route('directorio.create')}}">Registrar Numero</a></li>
-           
-            <li><a class="{{ request()->is('register') ? 'active': '' }}" href="/register">Registrar Usuario</a></li>  
-                @endif
-                
-                
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                @if(auth()->guest())
-                        <li><a class="{{ request()->is('login') ? 'active': '' }}" href="/login">Login</a></li>
-                                        
-                    @endif
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">WORKPLACE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item {{ request()->is('directorio') || request()->is('/') ? 'active': '' }}">
+                   
+                            <a class="nav-link" href="{{ route('directorio.index')}}">Directorio</a>
                         
-                    @if(auth()->check())
-                    <li class="pull-right"><a href="/logout">Cerrar Sesión de {{ auth()->user()->email }}</a></li>
-              
-                    @endif
-               
-            </ul>
+            </li>
 
+            @if (auth()->check())
+            <li class="{{ request()->is('directorio/create')  ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('directorio.create')}}">Registrar Numero</a>
+            </li>
+        
+            <li class="{{ request()->is('register') ? 'active': '' }}">
+                <a class="nav-link" href="/register">Registrar Usuario</a>
+            </li>  
+            @endif
 
             
-            
-        </div><!-- /.navbar-collapse -->
-    </nav>
-    
-     
+           
+          </ul>
+          <ul class="nav navbar-nav ml-auto">
+                @if(auth()->guest())
+                <li class="{{ request()->is('login') ? 'active': '' }}">
+                    <a class="nav-link"  href="/login">Login</a>
+                </li>
+                                
+            @endif
+                
+            @if(auth()->check())
+            <li class="{{ auth()->check() ? 'active': '' }}">
+                <a class="nav-link" href="/logout">Cerrar Sesión de {{ auth()->user()->email }}</a>
+            </li>
+      
+            @endif
+        </ul>
+        </div>
+      </nav>
+
+
 
        
     </header>
