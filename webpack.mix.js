@@ -17,9 +17,10 @@ mix.styles([
 ], 'public/css/all.css')
 .scripts([
     'resources/assets/plantilla/js/jquery.min.js',
+    'resources/assets/plantilla/js/popper.min.js',
+    'resources/assets/plantilla/js/bootstrap.min.js'
     
-    'resources/assets/plantilla/js/bootstrap.min.js',
-    
+
     
     
     

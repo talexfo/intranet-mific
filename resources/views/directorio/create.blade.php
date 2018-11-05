@@ -14,7 +14,7 @@
 
                         <div class="col-md-6">
                             {{-- <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus> --}}
-                            <input class="form-control" type="text" name="nombre" >   
+                            <input class="form-control" type="text" name="nombre" autofocus>   
                            
                         </div>
                     </div>

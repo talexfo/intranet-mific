@@ -148,6 +148,10 @@ class DirectorioController extends Controller
         $directorio->save();
 
 
+//enviar correo a aaltamirano@mific.gob.ni
+$destino = 'aaltamirano@mific.gob.ni';
+$mensaje = 'se modifico extensión ' . $directorio->extension;
+mail($destino, $mensaje);
 
         //redireccionar
         

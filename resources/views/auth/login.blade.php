@@ -2,9 +2,9 @@
 
 @section('contenido')
     
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="margin-top:50px">
           <div class="panel-heading">
-                <h3 class="panel-title">Acceder</h3>
+                <h3 class="panel-title text-center">Acceder</h3>
           </div>
           <div class="panel-body">
                 <form method="POST" action="{{ route('login') }}">

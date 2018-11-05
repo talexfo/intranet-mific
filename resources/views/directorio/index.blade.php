@@ -3,11 +3,10 @@
 @section('contenido')
 
 
-
-    <h1 class="text-center">Directorio</h1>
-
+<div class="text-center" style="margin-top:50px">
+    <h2>Directorio</h2>
+</div>
    
-
 
 <form action="directorio" method="GET"> 
     
@@ -24,10 +23,10 @@
             
         </div>
         <div class="col-md-4">
-<input class="form-control" type="text" name="buscar" >   
+<input class="form-control" type="text" name="buscar" autofocus>   
         </div>
         <div class="col-md-2">
-            <button class="btn btn-primary" type="submit">Buscar</button>
+            <button class="btn btn-info" type="submit">Buscar</button>
         </div>
     </div>
 
