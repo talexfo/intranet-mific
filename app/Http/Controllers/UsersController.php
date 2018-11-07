@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
 
     public function __construct (){
 
-        $this->middleware(['auth', 'roles:superadmin']);
+        $this->middleware('auth');
+        $this->middleware( 'roles:superadmin', ['except' => ['edit','update']]);
     }
-
 
 
     /**
@@ -67,7 +69,13 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+
+
+        $this->authorize($user);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -76,10 +84,33 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * 
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+
+        $this->authorize($user);
+
+
+        // dd($request->all());
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($user->password != $request->password) {
+        $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        
+        // $user->update($request->all());
+
+
+        return back()->with('info', 'Usuario Actualizado');
     }
 
     /**

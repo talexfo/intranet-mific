@@ -60,9 +60,9 @@
                                     Acceder
                                 </button>
                                 <a href="/" class="btn btn-secondary">Cancelar</a>
-                                <a class="btn btn-outline-success" href="{{ route('password.request') }}">
+                                {{--  <a class="btn btn-outline-success" href="{{ route('password.request') }}">
                                     Olvidé mi contraseña
-                                </a>
+                                </a>  --}}
                             </div>
                         </div>
                     </form>

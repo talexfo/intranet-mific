@@ -76,7 +76,7 @@
                             {{ auth()->user()->email }}
                     </a>
                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
-                            <a class="dropdown-item" href="/passords/reset">Cambiar Contraseña</a>
+                            <a class="dropdown-item" href="usuarios/{{auth()->id()}}/edit">Mi Cuenta</a>
                         <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
                       
                     </div>

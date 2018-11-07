@@ -24,6 +24,13 @@
                     {{$role->display_name}}
                     @endforeach
                 </td>
+                <td>
+                    <a class="btn btn-info btn-xs" href="{{ route('usuarios.edit', $item->id) }}" >
+                        Editar
+                    </a>
+
+                    
+                </td>
             
             </tr>
         @endforeach

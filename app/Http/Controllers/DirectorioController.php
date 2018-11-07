@@ -6,6 +6,7 @@ use App\Directorio;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Requests\DirectorioRequest;
 
 
 
@@ -78,7 +79,7 @@ class DirectorioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DirectorioRequest $request)
     {
 
         //guardar
@@ -137,7 +138,7 @@ class DirectorioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DirectorioRequest $request, $id)
     {
         $directorio = Directorio::findOrFail($id);
 

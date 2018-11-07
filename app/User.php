@@ -34,6 +34,12 @@ class User extends Authenticatable
     }
 
 
+
+    public function isAdmin()
+    {
+        return $this->hasRoles(['superadmin']);
+    }
+
     public function hasRoles( array $roles){
 
         foreach ($roles as $item ){

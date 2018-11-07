@@ -1,11 +1,19 @@
 @extends('plantilla')
+
 @section('contenido')
 
 
 <div class="text-center" style="margin-top:50px">
-    <h2>Actualizar  Directorio</h2>
+    <h2>Actualizar  Usuario</h2>
 </div>
-    <form method="POST" action="{{ route('directorio.update', $directorio->id) }}" >
+
+@if (session()->has('info'))
+  <div class="alert alert-success">
+        {{session('info')}}
+</div>
+@endif
+
+    <form method="POST" action="{{ route('usuarios.update', $user->id) }}" >
 
         {!!method_field('PUT')!!}
         {!!csrf_field()!!}
@@ -16,8 +24,8 @@
 
                         <div class="col-md-6">
                             {{-- <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus> --}}
-                            <input class="form-control" type="text" name="nombre" value="{{ $directorio->nombre }}">   
-                           
+                            <input class="form-control" type="text" name="name" value="{{ $user->name }}">   
+                           {!! $errors->first('name', '<span class=error>:message</span>') !!}
                         </div>
                     </div>
 
@@ -27,42 +35,30 @@
                         </label>
 
                         <div class="col-md-6">
-                            <input class="form-control" type="text" name="email" id="email" value="{{$directorio->email}}">
+                            <input class="form-control" type="text" name="email" id="email" value="{{$user->email}}">
+                            {!! $errors->first('email', '<span class=error>:message</span>') !!}
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label for="password" class="col-md-4 col-form-label text-md-right">
-                        Oficina
-                        </label>
-
-                        <div class="col-md-6">
-                            <input class="form-control" type="text" name="oficina" value="{{$directorio->oficina}}" >
-                        </div>
+                            Contraseña</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="password" name="password" id="password" value="{{$user->password}}">
+                                {!! $errors->first('password', '<span class=error>:message</span>') !!}
+                            </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                            Extensión
-                        </label>
+                    
 
-                        <div class="col-md-6">
-                            <input class="form-control" type="text" name="extension" value="{{$directorio->extension}}" >
-                            {!! $errors->first('extension', '<span class=error>:message</span>') !!}
-                        </div>
-                    </div>
+                    
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             
                             <input type="submit" value="Actualizar" class="btn btn-warning">
-                            <a href="/" class="btn btn-secondary">Cancelar</a>
+                            <a href="/usuarios" class="btn btn-secondary">Cancelar</a>
                         </div>
                     </div>
                 </form>
-
     
-
-
-
-@stop
+@endsection

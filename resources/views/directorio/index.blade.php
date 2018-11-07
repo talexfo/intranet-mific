@@ -38,12 +38,15 @@
 
 
 
-<table class="table table-hover">
+<table class="table table-hover col-md-12 col-sm-12 col-xs-12 ">
     <thead>
 <tr>
-<th>Nombre</th>
-<th>Email</th>  
-<th>oficina</th>
+        <th>Nombre</th>
+        
+            
+        <th>Email</th>  
+        <th>oficina</th>
+
 <th>Extensión</th>
 
 @if (auth()->check())

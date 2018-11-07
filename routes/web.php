@@ -13,7 +13,7 @@
 
 
 
-Route::get('usuarios', 'UsersController@index'); 
+Route::resource('usuarios', 'UsersController'); 
 
 Route::get('directorio/activar/{id}', 'DirectorioController@activar');
 Route::get('directorio/desactivar/{id}', 'DirectorioController@desactivar');

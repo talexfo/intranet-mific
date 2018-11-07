@@ -14,28 +14,28 @@
 
                         <div class="col-md-6">
                             {{-- <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus> --}}
-                            <input class="form-control" type="text" name="nombre" autofocus>   
+                            <input class="form-control" type="text" name="nombre" autofocus value="{{ old('nombre')}}">   
                            
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">
+                        <label for="email" class="col-md-4 col-form-label text-md-right" >
                         Email
                         </label>
 
                         <div class="col-md-6">
-                            <input class="form-control" type="text" name="email" id="email" >
+                            <input class="form-control" type="text" name="email" id="email" value="{{old('email')}}">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">
+                        <label for="oficina" class="col-md-4 col-form-label text-md-right">
                         Oficina
                         </label>
 
                         <div class="col-md-6">
-                            <input class="form-control" type="text" name="oficina" >
+                            <input class="form-control" type="text" name="oficina" value="{{old('oficina')}}">
                         </div>
                     </div>
 
@@ -46,6 +46,7 @@
 
                         <div class="col-md-6">
                             <input class="form-control" type="text" name="extension" >
+                            {!! $errors->first('extension', '<span class=error>:message</span>') !!}
                         </div>
                     </div>
 
